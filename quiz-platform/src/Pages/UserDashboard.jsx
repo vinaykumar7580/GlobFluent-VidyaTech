@@ -16,7 +16,7 @@ function UserDashboard() {
   };
 
   let user = JSON.parse(localStorage.getItem("quiz-users"));
-  let scoreArr=JSON.parse(localStorage.getItem("score"))
+  let scoreArr=JSON.parse(sessionStorage.getItem("score"))
   return (
     <div>
       <div className="relative h-52 bg-gradient-to-br from-blue-900 to-blue-500">
@@ -29,7 +29,7 @@ function UserDashboard() {
             <span>{user && user?.name}</span>
           </div>
         </div>
-        <div className="absolute w-full top-20 flex justify-center items-center px-6">
+        <div className="absolute w-full top-20 flex justify-center items-center px-6 animate-fade">
           <div>
             <img
               className="full h-auto"

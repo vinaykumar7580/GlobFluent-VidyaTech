@@ -20,10 +20,14 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    let user=JSON.parse(localStorage.getItem("users")) || []
+
     console.log(data);
 
     if (data.name && data.email && data.password && data.role) {
-      localStorage.setItem("quiz-users", JSON.stringify(data));
+     
+      let result=[...user, data]
+      localStorage.setItem("users", JSON.stringify(result))
       alert(`Registration success!`);
       navigate("/");
     } else {
@@ -40,7 +44,7 @@ function Register() {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-900 to-blue-500 px-3">
-      <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-white p-6 rounded-lg shadow-lg">
+      <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-white p-6 rounded-lg shadow-lg animate-fade">
         <h1 className="text-3xl font-bold text-center text-gray-900">
           Register
         </h1>

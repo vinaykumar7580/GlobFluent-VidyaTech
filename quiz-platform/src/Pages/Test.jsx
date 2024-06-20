@@ -76,7 +76,7 @@ function Test() {
   };
 
   const handleSubmit = () => {
-    let scoreArr=JSON.parse(localStorage.getItem("score")) || [];
+    let scoreArr=JSON.parse(sessionStorage.getItem("score")) || [];
     let score = 0;
     data?.forEach((q, index) => {
       if (answers[index] === q.correct) {
@@ -88,7 +88,7 @@ function Test() {
     let res=[...scoreArr, {title, score}]
     let ress=res.reverse()
     
-    localStorage.setItem("score", JSON.stringify(ress));
+    sessionStorage.setItem("score", JSON.stringify(ress));
     setScore(score);
     setSubmitted(true);
     setTimeLeft(0);

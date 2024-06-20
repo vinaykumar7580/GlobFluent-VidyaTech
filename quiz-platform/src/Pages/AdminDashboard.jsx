@@ -70,12 +70,12 @@ function AdminDashboard() {
       <div className="relative h-52 bg-gradient-to-br from-blue-900 to-blue-500">
         <div className="absolute w-full top-0 flex justify-between items-center py-3 px-6">
           <div className="z-10"></div>
-          <div className="p-2 bg-blue-500 text-white rounded-full flex justify-center items-center gap-1">
+          <div className="p-2 bg-blue-500 text-white rounded-full flex justify-center items-center gap-1 animate-slide">
             <FaUser />
             <span>{user && user?.name}</span>
           </div>
         </div>
-        <div className="absolute w-full top-20 flex justify-center items-center px-6">
+        <div className="absolute w-full top-20 flex justify-center items-center px-6 animate-fade">
           <div>
             <img
               className="full h-auto"

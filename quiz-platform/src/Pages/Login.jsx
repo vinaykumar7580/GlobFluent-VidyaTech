@@ -17,18 +17,19 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let user = JSON.parse(localStorage.getItem("quiz-users"));
+    let users = JSON.parse(localStorage.getItem("users"));
 
-    if (data.email === user.email && data.password === user.password) {
-      if (user.role === "user") {
-        alert(`Login success!`);
-        navigate("/user-dashboard");
-      } else if (user.role === "admin") {
-        alert(`Login success!`);
-        navigate("/admin-dashboard");
-      }
-    } else {
-      alert("Login failed!");
+    for (let i = 0; i <= users.length - 1; i++) {
+      if (users[i].email == data.email && users[i].password == data.password) {
+        localStorage.setItem("quiz-users", JSON.stringify(users[i]));
+        if (users[i].role === "user") {
+          alert(`Login success!`);
+          navigate("/user-dashboard");
+        } else if (users[i].role === "admin") {
+          alert(`Login success!`);
+          navigate("/admin-dashboard");
+        }
+      } 
     }
 
     setData({
@@ -39,7 +40,7 @@ function Login() {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-900 to-blue-500 px-3">
-      <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-white p-6 rounded-lg shadow-lg">
+      <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-white p-6 rounded-lg shadow-lg animate-fade">
         <h1 className="text-3xl font-bold text-center text-gray-900">Login</h1>
         <form onSubmit={handleSubmit} className="mt-6">
           <div>
