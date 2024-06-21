@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const LeftSlider = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,9 @@ const LeftSlider = () => {
           <FaTimes />
         </button>
         <h2 className="text-xl mb-4">Pages</h2>
-        {/* <p>Some content</p> */}
+         <div className='text-md font-bold bg-blue-500 mt-6 px-6 py-2 rounded-md'>
+          <Link to="/user-dashboard"><p>Dashboard</p></Link>
+         </div>
       </div>
     </div>
   );
